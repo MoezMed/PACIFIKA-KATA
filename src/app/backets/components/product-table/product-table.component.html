@@ -1,0 +1,20 @@
+<div class="content">
+    <div>
+      <table class="table">
+        <tr>
+          <td>
+            {{ product.productName }}  </td>
+          <td>
+            Quantité:  {{ product.quantity }}  </td>
+          <td>
+            Taxes:  {{ product.taxes }}
+          </td>
+          <td>
+            Prix unitaire TTC:  {{ product.priceTTC }}
+          </td>
+        </tr>
+      </table>
+      <button data-test="order-btn" (click)="deleteAProduct(product)">Delete</button>
+
+    </div>
+</div>

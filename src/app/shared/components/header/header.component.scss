@@ -1,0 +1,20 @@
+@import '../../../../theme/theme-variables';
+
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: $queen-pink;
+    font-weight: 600;
+    .title {
+        color: $fandango-pink;
+    }
+    .app-logo {
+        width: 40px;
+        margin: 0 16px;
+    }
+}
+
+.spacer {
+    flex: 1;
+}

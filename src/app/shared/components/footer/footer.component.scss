@@ -1,0 +1,21 @@
+@import '../../../../theme/theme-variables';
+
+.footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $queen-pink;
+    font-weight: 600;
+    .copyright {
+        color: $fandango-pink;
+    }
+    .app-logo {
+        width: 40px;
+        margin: 0 16px;
+    }
+}
+
+.spacer {
+    flex: 1;
+}

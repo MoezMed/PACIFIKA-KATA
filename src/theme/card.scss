@@ -1,0 +1,37 @@
+.card {
+  @extend .d-flex;
+  @extend .direction-column;
+  @extend .justify-content-space-between;
+  flex: 1;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 6px 12px;
+  height: 100%;
+  min-width: 30%;
+  counter-increment: cells;
+  .card-logo {
+    @extend .d-flex;
+    @extend .align-items-center;
+    @extend .justify-content-center;
+  }
+
+  .card-body {
+    padding: 20px 20px 0;
+
+    .card-title {
+      @extend .d-flex;
+      @extend .align-items-center;
+      @extend .justify-content-center;
+      font-weight: 500;
+      color: #161616;
+    }
+
+    p {
+      font-size: $font-size;
+      font-weight: 400;
+      color: #333;
+    }
+  }
+}
