@@ -1,3 +1,12 @@
+.card-elements {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card-item {
+  flex-basis: 31.3333%;
+  margin: 10px 10px 10px 10px;
+}
+
 .card {
   flex: 1 2 31%;
   margin: 5px;

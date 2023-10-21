@@ -11,8 +11,17 @@
 .menuSelect {
   display: flex;
   flex-direction: row;
-  gap: 24px;
+  gap: 40px;
   padding-bottom: 45px;
   max-width: 1120px;
   margin: auto;
+  justify-content: space-between;
+  width:100%
+}
+
+.linkPanier{
+  right: 10px;
+  top: 150px;
+  margin-right: 10px;
+  margin-top: 5px;
 }

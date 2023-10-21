@@ -1,6 +1,6 @@
 <div>
   <div class="justify-content-space-between">
-    <button class="retour" routerLink="/products">Acceuil</button>
+    <button class="retour" routerLink="/">return to Acceuil</button>
   </div>
 
   <div class="TabQuantityAndTaxed" *ngIf="products.length>0">
@@ -8,13 +8,14 @@
       <app-product-table *ngFor="let product of products" [product]="product"></app-product-table>
     </div>
     <div>
-      <table class="table">
+      <table class="tableTotaleTaxes">
+        <th style="text-align:right">Totales</th>
         <tr class="tr">
           <td class="td">
-            Totale Taxes : {{TotalTaxes}}
+            Totale Taxes : {{TotalTaxes | mycurrency}}
           </td>
           <td class="td">
-            Totale Taxes : {{TotalPrice }}
+            Totale TTC : {{TotalPrice | mycurrency }}
           </td>
         </tr>
       </table>
