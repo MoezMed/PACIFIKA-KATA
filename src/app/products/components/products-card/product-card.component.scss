@@ -3,3 +3,36 @@
 .list-group-item {
     border-top: 1px solid $queen-pink;
 }
+
+.quantityAndAdd{
+  display: flex;
+  flex-direction: row;
+}
+
+.quantityDisponible{
+  float: left;
+  height: 30px;
+  width: 30%;
+  margin-right:50px ;
+  border-radius: 15px;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  font-size: $font-size;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background-color: aqua;
+}
+.quantityNonDisponible{
+  float: left;
+  height: 20px;
+  width: 40%;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  font-size: $font-size;
+  letter-spacing: 1px;
+  color: dimgrey;
+  font-weight: bold;
+}
+

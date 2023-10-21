@@ -1,24 +1,27 @@
 <div>
-<div class="justify-content-space-between">
-  <button class="retour" routerLink="/products">Acceuil</button>
-</div>
+  <div class="justify-content-space-between">
+    <button class="retour" routerLink="/products">Acceuil</button>
+  </div>
 
-<div *ngIf="products.length>0">
-  <app-product-table *ngFor="let product of products" [product]="product"></app-product-table>
-  <table class="table">
-    <tr>
-      <td>
-        Totale Taxes : {{TotalTaxes}}
-      </td>
-      <td>
-        Totale Taxes : {{TotalPrice }}
-      </td>
-    </tr>
-  </table>
-
-</div>
-  <div *ngIf="products.length === 0" class="flex-container-row" >
-    <div> Pannier vide </div>
+  <div class="TabQuantityAndTaxed" *ngIf="products.length>0">
+    <div style="margin-right: 30px">
+      <app-product-table *ngFor="let product of products" [product]="product"></app-product-table>
+    </div>
+    <div>
+      <table class="table">
+        <tr class="tr">
+          <td class="td">
+            Totale Taxes : {{TotalTaxes}}
+          </td>
+          <td class="td">
+            Totale Taxes : {{TotalPrice }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="products.length === 0" class="flex-container-row">
+    <div class="NoBacketMessage"> Pannier vide</div>
 
   </div>
 </div>

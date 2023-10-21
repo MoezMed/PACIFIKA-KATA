@@ -4,24 +4,11 @@ import { formatCurrency, getCurrencySymbol } from '@angular/common';
   name: 'numberFormatter',
 })
 export class NumberFormatterPipe implements PipeTransform {
-  transform(
-    value: number,
-    currencyCode: string = 'EUR',
-    display:
-      | 'code'
-      | 'symbol'
-      | 'symbol-narrow'
-      | string
-      | boolean = 'symbol',
-    digitsInfo: string = '3.2-2',
-    locale: string = 'fr',
-  ): string | null {
-    return formatCurrency(
-      value,
-      locale,
-      getCurrencySymbol(currencyCode, 'wide'),
-      currencyCode,
-      digitsInfo,
-    );
+
+  transform(value: string): string {
+    const parts = value.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
   }
+
 }

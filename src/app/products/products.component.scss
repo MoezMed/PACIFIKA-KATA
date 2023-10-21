@@ -5,5 +5,14 @@
   padding-bottom: 45px;
   max-width: 1120px;
   margin: auto;
+  flex-wrap: wrap;
+}
 
+.menuSelect {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding-bottom: 45px;
+  max-width: 1120px;
+  margin: auto;
 }

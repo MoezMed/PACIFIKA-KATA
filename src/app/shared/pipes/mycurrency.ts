@@ -13,7 +13,7 @@ export class MycurrencyPipe implements PipeTransform {
       | 'symbol-narrow'
       | string
       | boolean = 'symbol',
-    digitsInfo: string = '3.2-2',
+    digitsInfo: string = '2.2-2',
     locale: string = 'fr',
   ): string | null {
     return formatCurrency(

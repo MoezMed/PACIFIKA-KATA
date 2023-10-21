@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   categories: string[] = [];
   productsByCategory: Product[] = [];
+  title = 'Kata Products';
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({products}) => {
@@ -62,6 +63,8 @@ export class ProductsComponent implements OnInit {
 
         }
       }
+      //Arround of taxes
+      product.taxes = Math.round(product.taxes * 20) / 20.0;
       product.priceTTC = product.price + product.taxes;
     });
   }

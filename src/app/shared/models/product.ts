@@ -6,5 +6,5 @@ export interface Product {
     isImported: boolean;
     category: string;
     taxes: number;
-    priceTTC?: number;
+    priceTTC: number;
 }

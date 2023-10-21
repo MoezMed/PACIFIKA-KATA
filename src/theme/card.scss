@@ -1,16 +1,13 @@
 .card {
-  @extend .d-flex;
-  @extend .direction-column;
+  flex: 1 2 31%;
+  margin: 5px;
   @extend .justify-content-space-between;
-  flex: 1;
   border-radius: 25px;
   background: white;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  margin: 6px 12px;
   height: 100%;
-  min-width: 30%;
-  counter-increment: cells;
+  min-width: 400px;
   .card-logo {
     @extend .d-flex;
     @extend .align-items-center;

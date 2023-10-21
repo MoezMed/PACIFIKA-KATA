@@ -1,6 +1,6 @@
-<div><h1>Katia Product</h1></div>
-<div class="justify-content-space-between">
-<select class="select" (change)="filterProductByCategory($event)" >
+<div><h1>{{title}}</h1></div>
+<div class="menuSelect">
+<select aria-label="Default select example" cSelect class="select" (change)="filterProductByCategory($event)" >
   <option>no category selected</option>
   <option *ngFor="let categorie of categories" [value]="categorie">
     {{categorie}}</option>
@@ -8,8 +8,6 @@
 </select>
 <button class="counter" routerLink="/backets">Pannier: {{products.length}}</button>
 </div>
-<div class="content">
-<div class="flex-container-row" *ngIf="productsByCategory.length > 0">
-    <app-product-card *ngFor="let product of productsByCategory" [product]="product" data-test="product-card"></app-product-card>
-  </div>
+<div class="card-elements" *ngIf="productsByCategory.length > 0">
+    <app-product-card class="card-item" *ngFor="let product of productsByCategory" [product]="product" data-test="product-card"></app-product-card>
 </div>
