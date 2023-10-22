@@ -5,8 +5,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ProductTableComponent } from './product-table.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import {ProductsService} from '../../../products/services/products.service';
 
-describe('BasketCardComponent', () => {
+describe('ProductTableComponent', () => {
     const el = (selector: string) => fixture.nativeElement.querySelector(selector);
     let component: ProductTableComponent;
     let fixture: ComponentFixture<ProductTableComponent>;
@@ -14,6 +15,7 @@ describe('BasketCardComponent', () => {
         await TestBed.configureTestingModule({
             declarations: [ProductTableComponent],
             imports: [SharedModule, ShellModule, HttpClientTestingModule, RouterTestingModule],
+            providers: [ProductsService]
         }).compileComponents();
         fixture = TestBed.createComponent(ProductTableComponent);
         component = fixture.componentInstance;

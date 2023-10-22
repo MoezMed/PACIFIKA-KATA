@@ -23,13 +23,4 @@ export class ProductsService {
   fetchAll(): Observable<Product[]> {
     return this.httpClient.get<Product[]>('assets/products.json');
   }
-
-  addQuantity(product: Product): Observable<void> {
-    return this.httpClient.post<void>('assets/products.json', product);
-  }
-
-  deleteProduct(product: Product): Observable<void> {
-    // this.productList.next(this.productList.getValue().filter(p => p.id !== product.id));
-    return this.httpClient.post<void>('assets/products.json', product);
-  }
 }

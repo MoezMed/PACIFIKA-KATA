@@ -5,15 +5,25 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ProductCardComponent } from './product-card.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import {registerLocaleData } from '@angular/common';
+import localefr from '@angular/common/locales/fr';
+import {LOCALE_ID } from '@angular/core';
+import {ProductsService} from '../../services/products.service';
+import {MycurrencyPipe} from '../../../shared/pipes/mycurrency';
 
-describe('BasketCardComponent', () => {
+describe('ProductCardComponent', () => {
     const el = (selector: string) => fixture.nativeElement.querySelector(selector);
     let component: ProductCardComponent;
     let fixture: ComponentFixture<ProductCardComponent>;
+  let productServiceSpy: jasmine.SpyObj<ProductsService>;
+  registerLocaleData(localefr, 'fr-fr');
     beforeEach(async () => {
+      productServiceSpy = jasmine.createSpyObj('ProductsService', ['getProductList']);
         await TestBed.configureTestingModule({
-            declarations: [ProductCardComponent],
+            declarations: [ProductCardComponent, MycurrencyPipe],
             imports: [SharedModule, ShellModule, HttpClientTestingModule, RouterTestingModule],
+          providers: [  {provide: LOCALE_ID, usevalue: 'FR-fr'},
+            {provide: ProductsService, useValue: productServiceSpy},]
         }).compileComponents();
         fixture = TestBed.createComponent(ProductCardComponent);
         component = fixture.componentInstance;

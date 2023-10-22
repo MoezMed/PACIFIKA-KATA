@@ -6,7 +6,7 @@
   <div class="TabQuantityAndTaxed" *ngIf="products.length>0">
     <div style="margin-right: 30px">
       <app-product-table *ngFor="let product of products"
-                         (productsUpdated)="products" [product]="product"></app-product-table>
+                         (productUpdated)="setProductList()" [product]="product"></app-product-table>
     </div>
     <div>
       <table class="tableTotalTaxes">

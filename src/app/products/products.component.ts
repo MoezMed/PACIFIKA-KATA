@@ -20,8 +20,6 @@ export class ProductsComponent implements OnInit {
   title = 'Kata Products';
 
   ngOnInit(): void {
-    //toDo recupérer la nouvelle Liste des products
-
     this.activatedRoute.data.subscribe(({products}) => {
       if (this.productsService.getProductList().length > 0) {
         this.products = this.productsService.getProductList();
@@ -46,7 +44,7 @@ export class ProductsComponent implements OnInit {
   }
 
   /**
-   * method to set the list of categories (distinct
+   * method to set the list of categories
    */
   private setCategotyList() {
     if (this.products.length > 0) {
@@ -83,5 +81,14 @@ export class ProductsComponent implements OnInit {
       product.taxes = Math.round(product.taxes * 20) / 20.0;
       product.priceTTC = product.price + product.taxes;
     });
+  }
+
+  /**
+   * method to update a new List with a new product added
+   * @param event: new product added
+   */
+  setNewProductAdded(event: Product) {
+    this.products = this.productsService.getProductList();
+    this.productsByCategory = this.products.filter(product => product.category === event.category);
   }
 }

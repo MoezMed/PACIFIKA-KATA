@@ -1,24 +1,26 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {BacketsComponent} from './backets.component';
+import {ProductsService} from '../products/services/products.service';
 
 
 describe('BacketsComponent', () => {
-    let component: BacketsComponent;
-    let fixture: ComponentFixture<BacketsComponent>;
-    const el = (selector: string) => fixture.nativeElement.querySelector(selector);
+  let component: BacketsComponent;
+  let fixture: ComponentFixture<BacketsComponent>;
+  const el = (selector: string) => fixture.nativeElement.querySelector(selector);
+  let productServiceSpy: jasmine.SpyObj<ProductsService>;
 
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [BacketsComponent],
-        }).compileComponents();
-        fixture = TestBed.createComponent(BacketsComponent);
-        const baskets = require('../../assets/products.json');
-        component = fixture.componentInstance;
-        component.ngOnInit();
-        fixture.detectChanges();
-    });
+  beforeEach(async () => {
+    productServiceSpy = jasmine.createSpyObj('ProductsService', ['getProductList']);
+    await TestBed.configureTestingModule({
+      declarations: [BacketsComponent],
+      providers: [{provide: ProductsService, useValue: productServiceSpy},]
+    }).compileComponents();
+    fixture = TestBed.createComponent(BacketsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
