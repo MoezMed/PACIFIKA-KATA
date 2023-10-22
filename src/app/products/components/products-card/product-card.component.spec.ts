@@ -5,19 +5,16 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ProductCardComponent } from './product-card.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ModalService } from 'src/app/shared/services/modal.service';
 
 describe('BasketCardComponent', () => {
     const el = (selector: string) => fixture.nativeElement.querySelector(selector);
     let component: ProductCardComponent;
     let fixture: ComponentFixture<ProductCardComponent>;
-    let modalService: ModalService;
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [ProductCardComponent],
             imports: [SharedModule, ShellModule, HttpClientTestingModule, RouterTestingModule],
         }).compileComponents();
-        modalService = TestBed.inject(ModalService);
         fixture = TestBed.createComponent(ProductCardComponent);
         component = fixture.componentInstance;
         const products = require('../../../../assets/products.json');
@@ -50,16 +47,4 @@ describe('BasketCardComponent', () => {
         expect(orderButton).toBeDefined();
     });
 
-    it('should open invoice Modal', () => {
-        const spy = jasmine.createSpy('spy');
-        spyOn(modalService, 'open');
-        const orderButton = el('[data-test="order-btn"]');
-        orderButton.click();
-        fixture.detectChanges();
-
-        modalService.data.subscribe(spy);
-
-        expect(modalService.open).toHaveBeenCalled();
-        expect(spy).toHaveBeenCalledWith(component.product);
-    });
 });

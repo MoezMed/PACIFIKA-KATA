@@ -4,7 +4,6 @@
   <option>no category selected</option>
   <option *ngFor="let categorie of categories" [value]="categorie">
     {{categorie}}</option>
-
 </select>
   <div class="linkPanier">
     <button class="counter" routerLink="/backets">Pannier: {{products.length}}</button>
@@ -13,5 +12,6 @@
 </div>
 
 <div class="card-elements" *ngIf="productsByCategory.length > 0">
-    <app-product-card class="card-item" *ngFor="let product of productsByCategory" [product]="product" data-test="product-card"></app-product-card>
+    <app-product-card class="card-item" *ngFor="let product of productsByCategory"
+                     (productsUpdated)="products" [product]="product" data-test="product-card"></app-product-card>
 </div>

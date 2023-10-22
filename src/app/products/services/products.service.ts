@@ -10,14 +10,14 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) {
   }
 
-  productList: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  $productList: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
 
   getProductList () :Product[]{
-    return this.productList.getValue();
+    return this.$productList.getValue();
   }
   setProductList (newProducts: Product[]){
-    return this.productList.next(newProducts);
+    return this.$productList.next(newProducts);
   }
 
   fetchAll(): Observable<Product[]> {

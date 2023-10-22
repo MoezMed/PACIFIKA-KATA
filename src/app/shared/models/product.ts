@@ -7,4 +7,5 @@ export interface Product {
     category: string;
     taxes: number;
     priceTTC: number;
+    NbreArticleAdded: number;
 }

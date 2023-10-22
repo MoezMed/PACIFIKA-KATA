@@ -5,19 +5,16 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ProductTableComponent } from './product-table.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ModalService } from 'src/app/shared/services/modal.service';
 
 describe('BasketCardComponent', () => {
     const el = (selector: string) => fixture.nativeElement.querySelector(selector);
     let component: ProductTableComponent;
     let fixture: ComponentFixture<ProductTableComponent>;
-    let modalService: ModalService;
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [ProductTableComponent],
             imports: [SharedModule, ShellModule, HttpClientTestingModule, RouterTestingModule],
         }).compileComponents();
-        modalService = TestBed.inject(ModalService);
         fixture = TestBed.createComponent(ProductTableComponent);
         component = fixture.componentInstance;
         const products = require('../../../../assets/products.json');

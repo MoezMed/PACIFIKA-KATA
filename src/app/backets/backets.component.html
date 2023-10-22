@@ -5,10 +5,11 @@
 
   <div class="TabQuantityAndTaxed" *ngIf="products.length>0">
     <div style="margin-right: 30px">
-      <app-product-table *ngFor="let product of products" [product]="product"></app-product-table>
+      <app-product-table *ngFor="let product of products"
+                         (productsUpdated)="products" [product]="product"></app-product-table>
     </div>
     <div>
-      <table class="tableTotaleTaxes">
+      <table class="tableTotalTaxes">
         <th style="text-align:right">Totales</th>
         <tr class="tr">
           <td class="td">

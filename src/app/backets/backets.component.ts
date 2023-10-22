@@ -15,13 +15,17 @@ export class BacketsComponent implements OnInit {
   TotalTaxes = 0;
   TotalPrice = 0;
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ products }) => {
-      this.products = products;
-    });
-    this.products = this.productsService.getProductList();
+    //toDo recupérer la nouvelle Liste
+
+  this.products = this.productsService.getProductList();
 
   this.calculateTotalesTaxesAndPrices();
   }
+
+  /**
+   * method to calculate total taxes and prices of all products
+   * @private
+   */
 
   private calculateTotalesTaxesAndPrices() {
     this.TotalTaxes = this.products.reduce((total, product) => total + product.taxes, 0);
